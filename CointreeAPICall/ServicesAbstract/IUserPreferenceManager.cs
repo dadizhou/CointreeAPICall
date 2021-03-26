@@ -8,7 +8,7 @@ namespace CointreeAPICall.ServicesAbstract
 {
     public interface IUserPreferenceManager
     {
-        public string SetUserPreference(UserPreference userPref);
+        public void SetUserPreference(UserPreference userPref);
         public UserPreference GetUserPreference();
     }
 }

@@ -64,6 +64,7 @@ namespace CointreeAPICall
         {
             services.AddScoped<ICoinService, CoinService>();
             services.AddScoped<IAPICallService, APICallService>();
+            services.AddSingleton<IUserPreferenceManager, UserPreferenceManager>();
         }
 
         /// <summary>

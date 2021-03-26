@@ -16,18 +16,25 @@ namespace CointreeAPICall.Controllers
     {
         private readonly IAPICallService apiCaller;
         private readonly ICoinService coinService;
+        private readonly IUserPreferenceManager userPrefManager;
 
-        public CointreeAPICallController(IAPICallService apiCaller, ICoinService coinService)
+        public CointreeAPICallController(IAPICallService apiCaller, ICoinService coinService, IUserPreferenceManager userPrefManager)
         {
             this.apiCaller = apiCaller;
             this.coinService = coinService;
+            this.userPrefManager = userPrefManager;
         }
 
         [Route("GetValue")]
         [HttpGet]
         public string GetValue()
         {
-            return apiCaller.GetValue();
+            var currentUserPref = userPrefManager.GetUserPreference();
+
+            if (currentUserPref == null)
+                return "";
+
+            return userPrefManager.GetUserPreference().PreferredCoin;
         }
 
         [Route("GetAllCoins")]
@@ -43,7 +50,13 @@ namespace CointreeAPICall.Controllers
         [HttpPost]
         public string SetUserPreferences([FromBody] UserPreference userPref)
         {
-            return userPref.PreferredCoin;
+            userPrefManager.SetUserPreference(userPref);
+            var currentUserPref = userPrefManager.GetUserPreference();
+
+            if (currentUserPref == null)
+                return "";
+
+            return userPrefManager.GetUserPreference().PreferredCoin;
         }
     }
 }

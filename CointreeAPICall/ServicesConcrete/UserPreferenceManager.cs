@@ -9,14 +9,25 @@ namespace CointreeAPICall.ServicesConcrete
 {
     public class UserPreferenceManager : IUserPreferenceManager
     {
+        private UserPreference currentUserPref;
+
+        /// <summary>
+        /// Retrieves the current user preference.
+        /// Also use default coin if no preference is set
+        /// </summary>
+        /// <returns></returns>
         public UserPreference GetUserPreference()
         {
-            throw new NotImplementedException();
+            return currentUserPref;
         }
 
-        public string SetUserPreference(UserPreference userPref)
+        /// <summary>
+        /// Set current preference. Just setting private variable at the stage.
+        /// </summary>
+        /// <param name="userPref"></param>
+        public void SetUserPreference(UserPreference userPref)
         {
-            throw new NotImplementedException();
+            currentUserPref = userPref;
         }
     }
 }
