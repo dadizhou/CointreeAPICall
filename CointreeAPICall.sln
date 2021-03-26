@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31112.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CointreeAPICall", "CointreeAPICall\CointreeAPICall.csproj", "{A04C18FD-AEC5-413E-B296-EA65011E3C13}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A04C18FD-AEC5-413E-B296-EA65011E3C13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A04C18FD-AEC5-413E-B296-EA65011E3C13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A04C18FD-AEC5-413E-B296-EA65011E3C13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A04C18FD-AEC5-413E-B296-EA65011E3C13}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E3091F4A-92B9-441F-AB25-4A867FF4DD5B}
+	EndGlobalSection
+EndGlobal
