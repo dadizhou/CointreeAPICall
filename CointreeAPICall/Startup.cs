@@ -1,4 +1,5 @@
-using CointreeAPICall.APICall;
+using CointreeAPICall.ServicesAbstract;
+using CointreeAPICall.ServicesConcrete;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;

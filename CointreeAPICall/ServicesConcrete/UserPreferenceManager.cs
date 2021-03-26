@@ -1,10 +1,11 @@
 ﻿using CointreeAPICall.Models;
+using CointreeAPICall.ServicesAbstract;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace CointreeAPICall.Services
+namespace CointreeAPICall.ServicesConcrete
 {
     public class UserPreferenceManager : IUserPreferenceManager
     {

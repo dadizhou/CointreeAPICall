@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace CointreeAPICall.Services
+namespace CointreeAPICall.ServicesAbstract
 {
     public interface IUserPreferenceManager
     {
