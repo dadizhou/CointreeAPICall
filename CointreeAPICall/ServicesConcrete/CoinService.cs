@@ -9,19 +9,20 @@ namespace CointreeAPICall.ServicesConcrete
 {
     public class CoinService : ICoinService
     {
+        private readonly IDataService dataService;
+
+        public CoinService(IDataService dataService)
+        {
+            this.dataService = dataService;
+        }
+
         /// <summary>
-        /// Supplies list of coins available. Hardcoded at the moment.
+        /// Supplies list of coins available.
         /// </summary>
         /// <returns>List of existing coins available</returns>
         public List<Coin> GetCoinList()
         {
-            var coinList = new List<Coin>() {
-                new Coin() { CoinId = 1, CoinSymbol = "BTC", IsDefault = false },
-                new Coin() { CoinId = 2, CoinSymbol = "ETH", IsDefault = true },
-                new Coin() { CoinId = 3, CoinSymbol = "XRP", IsDefault = false }
-            };
-
-            return coinList;
+            return dataService.AllCoins();
         }
     }
 }

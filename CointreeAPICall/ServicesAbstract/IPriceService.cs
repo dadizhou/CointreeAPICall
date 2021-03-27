@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace CointreeAPICall.ServicesAbstract
 {
-    public interface IUserPreferenceManager
+    public interface IPriceService
     {
-        public void SetUserPreference(UserPreference userPref);
-        public UserPreference GetUserPreference();
+        public Task<CoinPriceEnquiryResponse> GetCoinPriceDetails();
     }
 }

@@ -14,29 +14,21 @@ namespace CointreeAPICall.Controllers
     [ApiController]
     public class CointreeAPICallController : ControllerBase
     {
-        private readonly IAPICallService apiCaller;
+        private readonly IPriceService priceService;
         private readonly ICoinService coinService;
-        private readonly IUserPreferenceManager userPrefManager;
+        private readonly IUserPreferenceService userPrefService;
 
-        public CointreeAPICallController(IAPICallService apiCaller, ICoinService coinService, IUserPreferenceManager userPrefManager)
+        public CointreeAPICallController(IPriceService priceService, ICoinService coinService, IUserPreferenceService userPrefService)
         {
-            this.apiCaller = apiCaller;
+            this.priceService = priceService;
             this.coinService = coinService;
-            this.userPrefManager = userPrefManager;
+            this.userPrefService = userPrefService;
         }
 
-        [Route("GetValue")]
-        [HttpGet]
-        public string GetValue()
-        {
-            var currentUserPref = userPrefManager.GetUserPreference();
-
-            if (currentUserPref == null)
-                return "";
-
-            return userPrefManager.GetUserPreference().PreferredCoin;
-        }
-
+        /// <summary>
+        /// Supply a list of coins avaiable for the client
+        /// </summary>
+        /// <returns></returns>
         [Route("GetAllCoins")]
         [EnableCors("AllowEveryThing")]
         [HttpGet]
@@ -45,18 +37,35 @@ namespace CointreeAPICall.Controllers
             return coinService.GetCoinList();
         }
 
+        /// <summary>
+        /// Set user preference. Currently only accept the coin symbol
+        /// </summary>
+        /// <param name="userPref"></param>
+        /// <returns></returns>
         [Route("SetUserPreferences")]
         [EnableCors("AllowEveryThing")]
         [HttpPost]
         public string SetUserPreferences([FromBody] UserPreference userPref)
         {
-            userPrefManager.SetUserPreference(userPref);
-            var currentUserPref = userPrefManager.GetUserPreference();
+            userPrefService.SetUserPreference(userPref);
+            var currentUserPref = userPrefService.GetUserPreference();
 
             if (currentUserPref == null)
                 return "";
 
-            return userPrefManager.GetUserPreference().PreferredCoin;
+            return userPrefService.GetUserPreference().PreferredCoin;
+        }
+
+        /// <summary>
+        /// Retrieve current coin price details
+        /// </summary>
+        /// <returns></returns>
+        [Route("EnquireCoinPriceDetails")]
+        [EnableCors("AllowEveryThing")]
+        [HttpGet]
+        public async Task<CoinPriceEnquiryResponse> EnquireCoinPriceDetails()
+        {
+            return await priceService.GetCoinPriceDetails();
         }
     }
 }

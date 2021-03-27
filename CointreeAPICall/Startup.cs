@@ -62,9 +62,13 @@ namespace CointreeAPICall
         /// <param name="services"></param>
         public void AddDIServices(IServiceCollection services)
         {
+            services.AddTransient<IDataService, DataService>();
+
             services.AddScoped<ICoinService, CoinService>();
-            services.AddScoped<IAPICallService, APICallService>();
-            services.AddSingleton<IUserPreferenceManager, UserPreferenceManager>();
+            services.AddScoped<IPriceService, PriceService>();
+
+            services.AddSingleton<IUserPreferenceService, UserPreferenceService>();
+            services.AddSingleton<IPriceHistoryService, PriceHistoryService>();
         }
 
         /// <summary>
