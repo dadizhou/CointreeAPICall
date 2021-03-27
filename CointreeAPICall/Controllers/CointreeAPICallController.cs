@@ -63,7 +63,7 @@ namespace CointreeAPICall.Controllers
         [Route("EnquireCoinPriceDetails")]
         [EnableCors("AllowEveryThing")]
         [HttpGet]
-        public async Task<CoinPriceEnquiryResponse> EnquireCoinPriceDetails()
+        public async Task<PriceEnquiryResponse> EnquireCoinPriceDetails()
         {
             return await priceService.GetCoinPriceDetails();
         }

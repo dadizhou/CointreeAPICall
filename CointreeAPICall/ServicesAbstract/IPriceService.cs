@@ -8,6 +8,6 @@ namespace CointreeAPICall.ServicesAbstract
 {
     public interface IPriceService
     {
-        public Task<CoinPriceEnquiryResponse> GetCoinPriceDetails();
+        public Task<PriceEnquiryResponse> GetCoinPriceDetails();
     }
 }

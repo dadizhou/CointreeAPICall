@@ -5,12 +5,12 @@ using System.Threading.Tasks;
 
 namespace CointreeAPICall.Models
 {
-    public class CoinPriceEnquiryResponse
+    public class PriceEnquiryResponse
     {
         public decimal Ask { get; set; }
         public decimal Bid { get; set; }
         public decimal Rate { get; set; }
-        public CustomerPrice PreviousPrice { get; set; }
+        public PricePercentage PriceChange { get; set; }
         public List<string> Messages { get; set; } = new List<string>();
     }
 }
