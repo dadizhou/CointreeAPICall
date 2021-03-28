@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 namespace CointreeAPICall.Models
 {
     /// <summary>
-    /// Holds user preferrences
+    /// Holds user preferences
     /// </summary>
     public class UserPreference
     {
